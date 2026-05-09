@@ -277,7 +277,7 @@ WHAT MAKES SPICEBITE SPECIAL:
     chatHistory.push({ role: 'user', content: text });
   
     try {
-      const response = await fetch("http://localhost:3000/chat", {
+      const response = await fetch("https://spicebite-backend-dvqi.onrender.com/chat", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -403,7 +403,7 @@ async function submitReservation() {
   try {
 
     const response = await fetch(
-      "http://localhost:3000/book",
+      "https://spicebite-backend-dvqi.onrender.com/book",
       {
         method: "POST",
         headers: {
