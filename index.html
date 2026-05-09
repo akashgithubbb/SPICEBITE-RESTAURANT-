@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SpiceBite Restaurant — Baner Road, Pune</title>
+  <meta name="description" content="Premium Indian dining experience on Baner Road, Pune. Authentic flavours, expert chefs, unforgettable meals." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════ -->
+  <nav id="navbar">
+    <a href="#hero" class="logo">Spice<em>Bite</em></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#reservation" class="nav-cta">Reserve Table</a>
+    
+    <button id="themeToggle" class="theme-toggle">
+      🌙
+    </button>
+
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+
+  <!-- Mobile Overlay Nav -->
+  <div class="mob-overlay" id="mobOverlay">
+    <a href="#hero"        onclick="closeMob()">Home</a>
+    <a href="#menu"        onclick="closeMob()">Menu</a>
+    <a href="#gallery"     onclick="closeMob()">Gallery</a>
+    <a href="#reservation" onclick="closeMob()">Reserve</a>
+    <a href="#contact"     onclick="closeMob()">Contact</a>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       HERO
+  ══════════════════════════════════════ -->
+  <section id="hero" class="hero" data-aos="fade-up">
+    <div class="hero-bg"></div>
+    <div class="hero-grain"></div>
+    <div class="hero-content">
+      <span class="eyebrow">Est. 2018 &nbsp;·&nbsp; Baner Road, Pune</span>
+      <h1>Taste the<br /><em>Authentic</em><br />Flavors</h1>
+      <p class="hero-sub">Bold spices. Slow-cooked traditions. An experience that lingers long after the last bite.</p>
+      <div class="hero-btns">
+        <a href="#menu" class="btn btn-primary">View Menu &nbsp;→</a>
+        <a href="#reservation" class="btn btn-ghost">Book a Table</a>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">Scroll to explore</div>
+    <div class="hero-stats">
+      <div class="h-stat"><span class="n">4.8<em>★</em></span><span class="l">Rating</span></div>
+      <div class="h-stat"><span class="n">50K<em>+</em></span><span class="l">Happy Guests</span></div>
+      <div class="h-stat"><span class="n">200<em>+</em></span><span class="l">Menu Items</span></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       ABOUT
+  ══════════════════════════════════════ -->
+  <section id="about">
+    <div class="about-inner">
+      <div class="about-visual fade-up">
+        <div class="about-img-frame">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=82" alt="SpiceBite kitchen" loading="lazy" />
+        </div>
+        <div class="about-badge">10+<small>Years of Taste</small></div>
+      </div>
+      <div class="about-copy">
+        <span class="sec-label">Our Story</span>
+        <h2>A Legacy of<br /><em>Flavour & Fire</em></h2>
+        <div class="rule"></div>
+        <p class="fade-up delay-1">SpiceBite was born from a simple obsession — recreating the bold, honest flavours that fill Indian homes during festivals and family gatherings. Nestled on Baner Road, Pune, we have been serving soul-warming food since 2018.</p>
+        <p class="fade-up delay-2">Every recipe is crafted with premium ingredients sourced locally, prepared by chefs who treat cooking as an art form. Whether it's a quiet dinner or a celebratory feast, we make every visit unforgettable.</p>
+        <div class="about-stats fade-up delay-3">
+          <div class="a-stat"><span class="n">200+</span><span class="l">Menu Items</span></div>
+          <div class="a-stat"><span class="n">50K+</span><span class="l">Happy Guests</span></div>
+          <div class="a-stat"><span class="n">4.8★</span><span class="l">Google Rating</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       MENU
+  ══════════════════════════════════════ -->
+  <section id="menu" class="menu-section">
+    <div class="section-head center">
+      <span class="sec-label">Signature Dishes</span>
+      <h2>Our <em>Finest</em> Creations</h2>
+      <div class="rule mx-auto"></div>
+    </div>
+    <div class="menu-grid">
+
+      <div class="menu-card fade-up">
+        <div class="mc-img">
+          <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=600&q=80" alt="Butter Chicken" loading="lazy" />
+          <span class="mc-tag">Chef's Pick</span>
+        </div>
+        <div class="mc-body">
+          <h3>Butter Chicken Royale</h3>
+          <p>Tender chicken in our house-made tomato cream sauce, slow simmered for 4 hours.</p>
+          <div class="mc-foot">
+            <span class="price">₹380</span>
+            <button class="add-btn" onclick="toastMsg('🍽 Added to order!')">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card fade-up delay-1">
+        <div class="mc-img">
+          <img src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=600&q=80" alt="Biryani" loading="lazy" />
+          <span class="mc-tag">Best Seller</span>
+        </div>
+        <div class="mc-body">
+          <h3>Dum Gosht Biryani</h3>
+          <p>Fragrant long-grain rice layered with slow-cooked mutton &amp; saffron.</p>
+          <div class="mc-foot">
+            <span class="price">₹450</span>
+            <button class="add-btn" onclick="toastMsg('🍽 Added to order!')">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card fade-up delay-2">
+        <div class="mc-img">
+          <img src="https://images.unsplash.com/photo-1567337710282-00832b415979?w=600&q=80" alt="Dal Makhani" loading="lazy" />
+        </div>
+        <div class="mc-body">
+          <h3>Dal Makhani Signature</h3>
+          <p>Black lentils slow-cooked overnight with butter, cream &amp; aromatic spices.</p>
+          <div class="mc-foot">
+            <span class="price">₹220</span>
+            <button class="add-btn" onclick="toastMsg('🍽 Added to order!')">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card fade-up">
+        <div class="mc-img">
+          <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=600&q=80" alt="Seekh Kebab" loading="lazy" />
+          <span class="mc-tag">Starter</span>
+        </div>
+        <div class="mc-body">
+          <h3>Seekh Kebab Platter</h3>
+          <p>Hand-minced lamb spiced with garam masala, grilled on live charcoal.</p>
+          <div class="mc-foot">
+            <span class="price">₹340</span>
+            <button class="add-btn" onclick="toastMsg('🍽 Added to order!')">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card fade-up delay-1">
+        <div class="mc-img">
+          <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=600&q=80" alt="Paneer Tikka" loading="lazy" />
+        </div>
+        <div class="mc-body">
+          <h3>Paneer Tikka Masala</h3>
+          <p>Charred cottage cheese cubes simmered in a smoky, spiced tomato gravy.</p>
+          <div class="mc-foot">
+            <span class="price">₹290</span>
+            <button class="add-btn" onclick="toastMsg('🍽 Added to order!')">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card fade-up delay-2">
+        <div class="mc-img">
+          <img src="https://images.unsplash.com/photo-1574484284002-952d92456975?w=600&q=80" alt="Rogan Josh" loading="lazy" />
+          <span class="mc-tag">Premium</span>
+        </div>
+        <div class="mc-body">
+          <h3>Kashmiri Rogan Josh</h3>
+          <p>Slow-braised lamb shanks in a rich, aromatic Kashmiri spice reduction.</p>
+          <div class="mc-foot">
+            <span class="price">₹520</span>
+            <button class="add-btn" onclick="toastMsg('🍽 Added to order!')">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card fade-up">
+        <div class="mc-img">
+          <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&q=80" alt="Thali" loading="lazy" />
+        </div>
+        <div class="mc-body">
+          <h3>Royal Thali</h3>
+          <p>A curated platter of 8 dishes — the full SpiceBite experience in one meal.</p>
+          <div class="mc-foot">
+            <span class="price">₹650</span>
+            <button class="add-btn" onclick="toastMsg('🍽 Added to order!')">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card fade-up delay-1">
+        <div class="mc-img">
+          <img src="https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=600&q=80" alt="Gulab Jamun" loading="lazy" />
+          <span class="mc-tag">Dessert</span>
+        </div>
+        <div class="mc-body">
+          <h3>Gulab Jamun Soufflé</h3>
+          <p>A modern reimagining — warm, pillowy, served with rabri ice cream.</p>
+          <div class="mc-foot">
+            <span class="price">₹180</span>
+            <button class="add-btn" onclick="toastMsg('🍽 Added to order!')">+</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       GALLERY
+  ══════════════════════════════════════ -->
+  <section id="gallery" class="gallery-section" data-aos="zoom-in">
+    <div class="section-head center">
+      <span class="sec-label">Visual Feast</span>
+      <h2>Taste With Your <em>Eyes First</em></h2>
+      <div class="rule mx-auto"></div>
+    </div>
+    <div class="gallery-grid">
+      <div class="gal-item fade-up gi-wide"><img src="https://images.unsplash.com/photo-1485963631004-f2f00b1d6606?w=1000&q=82" alt="Gourmet spread" loading="lazy" /><div class="gal-zoom">⤢</div></div>
+      <div class="gal-item fade-up delay-1"><img src="https://images.unsplash.com/photo-1546833998-877b37c2e5c6?w=600&q=80" alt="Saffron dish" loading="lazy" /><div class="gal-zoom">⤢</div></div>
+      <div class="gal-item fade-up delay-2"><img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=600&q=80" alt="Naan bread" loading="lazy" /><div class="gal-zoom">⤢</div></div>
+      <div class="gal-item fade-up delay-1"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=700&q=80" alt="Dining table" loading="lazy" /><div class="gal-zoom">⤢</div></div>
+      <div class="gal-item fade-up delay-2 gi-wide"><img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=900&q=80" alt="Paneer dish" loading="lazy" /><div class="gal-zoom">⤢</div></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       WHY CHOOSE US
+  ══════════════════════════════════════ -->
+  <section id="why">
+    <div class="why-inner">
+      <div class="why-left">
+        <span class="sec-label">Why SpiceBite</span>
+        <h2>Crafted With<br /><em>Passion</em> &amp; Purpose</h2>
+        <div class="rule"></div>
+        <p>We believe a great meal is more than food — it is the company, the ambiance, and the care that goes into every detail on your plate.</p>
+        <div class="review-card fade-up">
+          <div class="rc-score">4.8</div>
+          <div class="rc-stars">★★★★★</div>
+          <div class="rc-count">2,400+ reviews on Google &amp; Zomato</div>
+          <div class="rc-quote">"The best butter chicken I've had in Pune. The ambiance is warm and service impeccable."<span>— Priya M., Google Review</span></div>
+        </div>
+      </div>
+      <div class="why-features">
+        <div class="feat-card fade-up">
+          <div class="feat-icon">🌿</div>
+          <h3>Farm-Fresh Ingredients</h3>
+          <p>We source directly from local Pune farms daily — every dish bursts with natural freshness and nutrition.</p>
+        </div>
+        <div class="feat-card fade-up delay-1">
+          <div class="feat-icon">👨‍🍳</div>
+          <h3>Master Chefs</h3>
+          <p>Our kitchen is led by chefs with 15+ years of expertise trained at India's top hospitality institutions.</p>
+        </div>
+        <div class="feat-card fade-up delay-2">
+          <div class="feat-icon">⚡</div>
+          <h3>Swift, Warm Service</h3>
+          <p>We respect your time. Every table is served within 15 minutes — without compromising on quality.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       RESERVATION
+  ══════════════════════════════════════ -->
+  <section class="reservation-section" data-aos="fade-left">
+    <div class="res-glow"></div>
+    <div class="res-inner">
+      <div class="section-head center">
+        <span class="sec-label">Book a Table</span>
+        <h2>Reserve Your <em>Experience</em></h2>
+        <div class="rule mx-auto"></div>
+        <p class="res-sub">Our team confirms your reservation within 30 minutes. For groups of 10+, call us directly.</p>
+      </div>
+      <div class="res-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="rName">Your Name</label>
+            <input type="text" id="rName" placeholder="e.g. Rahul Sharma" />
+          </div>
+          <div class="form-group">
+            <label for="rPhone">Phone Number</label>
+            <input type="tel" id="rPhone" placeholder="+91 98765 43210" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="rDate">Date</label>
+            <input type="date" id="rDate" />
+          </div>
+          <div class="form-group">
+            <label for="rGuests">Guests</label>
+            <select id="rGuests">
+              <option value="">Select guests</option>
+              <option>1 person</option>
+              <option>2 people</option>
+              <option>3–4 people</option>
+              <option>5–6 people</option>
+              <option>7+ people</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group full">
+          <label for="rNote">Special Requests (Optional)</label>
+          <input type="text" id="rNote" placeholder="Allergies, anniversary, window seating…" />
+        </div>
+        <button class="btn btn-primary btn-wide" onclick="submitReservation()">
+          Confirm Reservation &nbsp;✦
+        </button>
+        <p class="form-note">By reserving, you agree to our 30-min grace period policy. Complimentary dessert for birthdays &amp; anniversaries — mention when reserving!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
+  <footer id="contact">
+    <div class="footer-grid">
+      <div class="foot-brand">
+        <a href="#hero" class="logo">Spice<em>Bite</em></a>
+        <p>A premium dining experience on Baner Road, Pune. Where tradition meets modern gastronomy, one plate at a time.</p>
+        <div class="socials">
+          <a href="#" class="soc-link" aria-label="Instagram">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="#" class="soc-link" aria-label="Facebook">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="#" class="soc-link" aria-label="Twitter/X">
+            <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#menu">Our Menu</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#reservation">Reserve Table</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Opening Hours</h4>
+        <p>Monday – Friday<br /><strong>11:00 AM – 11:00 PM</strong></p>
+        <br />
+        <p>Saturday – Sunday<br /><strong>10:00 AM – 11:30 PM</strong></p>
+      </div>
+      <div class="foot-col">
+        <h4>Contact Us</h4>
+        <p>📍 12, Baner Road,<br />Near Balewadi Stadium,<br />Pune – 411045</p>
+        <br />
+        <p>📞 +91 98765 43210</p>
+        <br />
+        <p>✉ hello@spicebite.in</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2025 SpiceBite Restaurant. All rights reserved.</span>
+      <span>Made with ❤ in Pune &nbsp;·&nbsp; <a href="#">Privacy Policy</a></span>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════
+       TOAST NOTIFICATION
+  ══════════════════════════════════════ -->
+  <div id="toast"></div>
+
+  <!-- ══════════════════════════════════════
+       AI CHATBOT
+  ══════════════════════════════════════ -->
+
+  <!-- Floating Trigger Button -->
+  <button id="chatBtn" aria-label="Chat with SpiceBite AI" onclick="chatToggle()">
+    <svg class="ic-open" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+    </svg>
+    <svg class="ic-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round">
+      <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>
+    <span class="chat-notif" id="chatNotif">1</span>
+  </button>
+
+
+  
+
+  <!-- Chat Window -->
+  <div id="chatWindow">
+    <div class="chat-head">
+      <div class="chat-avatar">🍛
+        <span class="online-dot"></span>
+      </div>
+      <div class="chat-head-info">
+        <strong>SpiceBite Assistant</strong>
+        <span>● Online — here to help!</span>
+      </div>
+      <button class="chat-head-close" onclick="chatToggle()" aria-label="Close chat">✕</button>
+    </div>
+
+    <div class="chat-messages" id="chatMessages"></div>
+
+    <div class="chat-input-bar">
+      <textarea id="chatInput" rows="1" placeholder="Ask anything about SpiceBite…"
+        onkeydown="chatKeyDown(event)" oninput="chatAutoResize(this)"></textarea>
+      <button id="chatSendBtn" onclick="chatSend()" aria-label="Send message">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff">
+          <path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/>
+        </svg>
+      </button>
+    </div>
+    <div class="chat-powered">Powered by <span>Claude AI</span></div>
+  </div>
+  
+
+
+  <div class="custom-cursor"></div>
+
+
+  <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
