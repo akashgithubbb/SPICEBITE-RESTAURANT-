@@ -515,10 +515,8 @@ hoverItems.forEach((item) => {
 // Smooth Scrolling
 
 const lenis = new Lenis({
-  duration: 1.2,
   smoothWheel: true,
-  smoothTouch: false,
-  easing: (t) => 1 - Math.pow(1 - t, 4)
+  easing: (t) => 1 - Math.pow(1 - t, 4),
 });
 
 function raf(time) {
@@ -527,3 +525,21 @@ function raf(time) {
 }
 
 requestAnimationFrame(raf);
+
+const chatMessages = document.querySelector('.chat-messages');
+
+chatMessages.addEventListener(
+  'wheel',
+  (e) => {
+    e.stopPropagation();
+  },
+  { passive: true }
+);
+
+chatMessages.addEventListener('mouseenter', () => {
+  lenis.stop();
+});
+
+chatMessages.addEventListener('mouseleave', () => {
+  lenis.start();
+});
