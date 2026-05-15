@@ -247,20 +247,34 @@ section { padding: 108px 6%; }
 
 .mob-overlay {
   position: fixed;
-  inset: 0;
-  z-index: 899;
-  background: rgba(8, 6, 4, 0.97);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+
+  z-index: 9999;
+
+  background: rgba(8, 6, 4, 0.98);
   backdrop-filter: blur(26px);
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 2.2rem;
+
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.35s;
+
+  transition: all 0.35s ease;
 }
-.mob-overlay.open { opacity: 1; pointer-events: all; }
+
+.mob-overlay.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
 .mob-overlay a {
   font-family: var(--font-head);
   font-size: 2.5rem;
@@ -910,8 +924,8 @@ footer {
 /* -- Floating trigger button -- */
 #chatBtn {
   position: fixed;
-  bottom: 30px; right: 30px;
-  z-index: 990;
+  bottom: 20px; right: 18px;
+  z-index: 50;
   width: 62px; height: 62px;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--orange-lt), var(--orange));
@@ -929,6 +943,28 @@ footer {
   55%       { box-shadow: 0 8px 32px rgba(224,92,0,0.52), 0 0 0 18px rgba(224,92,0,0); }
 }
 #chatBtn:hover { transform: scale(1.1) rotate(-5deg); }
+
+@media (max-width:768px){
+
+  #chatBtn{
+    width:56px;
+    height:56px;
+
+    right:14px;
+    bottom:14px;
+
+    z-index:100;
+  }
+
+  input,
+  textarea,
+  select{
+    position:relative;
+    z-index:9999;
+  }
+
+}
+
 
 #chatBtn .ic-open  { transition: opacity 0.25s, transform 0.3s; }
 #chatBtn.open .ic-open {
@@ -980,11 +1016,13 @@ footer {
   pointer-events: none;
   transition: all 0.38s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
+  visibility: hidden;
 }
 #chatWindow.open {
+  visibility: visible;
   transform: translateY(0) scale(1);
   opacity: 1;
-  pointer-events: all;
+  pointer-events: auto;
 }
 
 /* header */
@@ -1302,49 +1340,72 @@ body.light-mode a{
 }
 
 
-.custom-cursor{
-  width:18px;
-  height:18px;
+/* Desktop Custom Cursor Only */
+@media (min-width: 769px){
 
-  border:2px solid #ff6b00;
+  .custom-cursor{
+    width:18px;
+    height:18px;
 
-  border-radius:50%;
+    border:2px solid #ff6b00;
 
-  position:fixed;
+    border-radius:50%;
 
-  top:0;
-  left:0;
+    position:fixed;
 
-  pointer-events:none;
+    top:0;
+    left:0;
 
-  transform:translate(-50%, -50%);
+    pointer-events:none;
 
-  z-index:99999;
+    transform:translate(-50%, -50%);
 
-  transition:
-    transform 0.08s linear,
-    width 0.2s ease,
-    height 0.2s ease,
-    background 0.2s ease;
+    z-index:99999;
 
-  box-shadow:
-    0 0 20px rgba(255,107,0,0.6);
+    transition:
+      transform 0.08s linear,
+      width 0.2s ease,
+      height 0.2s ease,
+      background 0.2s ease;
+
+    box-shadow:
+      0 0 20px rgba(255,107,0,0.6);
+  }
+
+  .custom-cursor.active{
+    width:42px;
+    height:42px;
+
+    background:rgba(255,107,0,0.15);
+  }
+
+  body{
+    cursor:none;
+  }
+
+  a,
+  button{
+    cursor:none;
+  }
+
 }
 
-.custom-cursor.active{
-  width:42px;
-  height:42px;
+/* Mobile Fix */
+@media (max-width:768px){
 
-  background:rgba(255,107,0,0.15);
-}
+  .custom-cursor{
+    display:none !important;
+  }
 
-body{
-  cursor:none;
-}
+  body,
+  a,
+  button,
+  input,
+  textarea,
+  select{
+    cursor:auto !important;
+  }
 
-a,
-button{
-  cursor:none;
 }
 
 /* Smooth Scrolling  */
@@ -1362,3 +1423,52 @@ html.lenis body {
   overscroll-behavior: contain;
 }
 
+@media (max-width: 768px){
+
+  .custom-cursor{
+    display:none !important;
+  }
+
+  body,
+  a,
+  button{
+    cursor:auto !important;
+  }
+
+}
+
+
+
+
+/* Disable custom cursor on mobile */
+@media (max-width:768px){
+
+  .custom-cursor{
+    display:none !important;
+  }
+
+  body,
+  a,
+  button,
+  input,
+  textarea,
+  select{
+    cursor:auto !important;
+  }
+
+}
+
+
+
+
+@media (max-width:768px){
+
+  #chatBtn{
+    bottom: 14px !important;
+    right: 14px !important;
+
+    width: 58px;
+    height: 58px;
+  }
+
+}

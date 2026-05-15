@@ -22,7 +22,23 @@
   hamburger.addEventListener('click', () => {
     mobOpen = !mobOpen;
     mobOverlay.classList.toggle('open', mobOpen);
-    document.body.style.overflow = mobOpen ? 'hidden' : '';
+    if (mobOpen) {
+
+      document.body.style.overflow = 'hidden';
+    
+      if (typeof lenis !== "undefined") {
+        lenis.stop();
+      }
+    
+    } else {
+    
+      document.body.style.overflow = 'auto';
+    
+      if (typeof lenis !== "undefined") {
+        lenis.start();
+      }
+    
+    }
 
     const spans = hamburger.querySelectorAll('span');
     if (mobOpen) {
@@ -36,10 +52,23 @@
 
   // Expose close for inline onclick
   window.closeMob = function () {
+
     mobOpen = false;
+  
     mobOverlay.classList.remove('open');
-    document.body.style.overflow = '';
-    hamburger.querySelectorAll('span').forEach(s => s.removeAttribute('style'));
+  
+    document.body.style.overflow = 'auto';
+  
+    document.documentElement.style.overflow = 'auto';
+  
+    if (typeof lenis !== "undefined") {
+      lenis.start();
+    }
+  
+    hamburger.querySelectorAll('span').forEach(s => {
+      s.removeAttribute('style');
+    });
+  
   };
 })();
 
@@ -193,19 +222,24 @@ WHAT MAKES SPICEBITE SPECIAL:
 
     // Hide notification badge on open
     if (chatOpen) {
-      chatNotif.classList.add('hide');
-      if (!welcomed) {
-        welcomed = true;
-        setTimeout(() => {
-          addBotMessage(
-            "Namaste! 🙏 I'm your SpiceBite Assistant. Ask me anything — our menu, hours, reservations, location, or anything else about SpiceBite! How can I help you today?",
-            true
-          );
-        }, 380);
-      }
-      setTimeout(() => chatInput.focus(), 420);
+        chatNotif.classList.add('hide');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+        document.documentElement.style.overflow = 'hidden'; // Prevent scrolling
+        if (!welcomed) {
+            welcomed = true;
+            setTimeout(() => {
+                addBotMessage(
+                    "Namaste! 🙏 I'm your SpiceBite Assistant. Ask me anything — our menu, hours, reservations, location, or anything else about SpiceBite! How can I help you today?",
+                    true
+                );
+            }, 380);
+        }
+        setTimeout(() => chatInput.focus(), 420);
+    } else {
+        document.body.style.overflow = 'auto'; // Restore scrolling
+        document.documentElement.style.overflow = 'auto'; // Restore scrolling
     }
-  };
+};
 
   /* ── ADD USER MESSAGE ───────────────────────────── */
   function addUserMessage(text) {
@@ -487,44 +521,61 @@ AOS.init({
 
 // Cursor Section
 
-const cursor = document.querySelector(".custom-cursor");
+// Cursor Section — Desktop Only
 
-document.addEventListener("mousemove", (e) => {
+if (window.innerWidth > 768) {
 
-  cursor.style.left = e.clientX + "px";
-  cursor.style.top = e.clientY + "px";
+  const cursor = document.querySelector(".custom-cursor");
 
-});
+  if (cursor) {
 
-const hoverItems = document.querySelectorAll(
-  "a, button, .menu-card"
-);
+    document.addEventListener("mousemove", (e) => {
 
-hoverItems.forEach((item) => {
+      cursor.style.left = e.clientX + "px";
+      cursor.style.top = e.clientY + "px";
 
-  item.addEventListener("mouseenter", () => {
-    cursor.classList.add("active");
-  });
+    });
 
-  item.addEventListener("mouseleave", () => {
-    cursor.classList.remove("active");
-  });
+    const hoverItems = document.querySelectorAll(
+      "a, button, .menu-card"
+    );
 
-});
+    hoverItems.forEach((item) => {
+
+      item.addEventListener("mouseenter", () => {
+        cursor.classList.add("active");
+      });
+
+      item.addEventListener("mouseleave", () => {
+        cursor.classList.remove("active");
+      });
+
+    });
+
+  }
+
+}
 
 // Smooth Scrolling
 
-const lenis = new Lenis({
-  smoothWheel: true,
-  easing: (t) => 1 - Math.pow(1 - t, 4),
-});
+let lenis = null;
 
-function raf(time) {
-  lenis.raf(time);
+// Disable Lenis on mobile
+if (window.innerWidth > 768) {
+
+  lenis = new Lenis({
+    smoothWheel: true,
+    easing: (t) => 1 - Math.pow(1 - t, 4),
+  });
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+
   requestAnimationFrame(raf);
-}
 
-requestAnimationFrame(raf);
+}
 
 const chatMessages = document.querySelector('.chat-messages');
 
@@ -542,4 +593,34 @@ chatMessages.addEventListener('mouseenter', () => {
 
 chatMessages.addEventListener('mouseleave', () => {
   lenis.start();
+});
+
+
+document.querySelectorAll('.mob-overlay a').forEach(link => {
+
+  link.addEventListener('click', function(e) {
+
+    e.preventDefault();
+
+    const targetId = this.getAttribute('href');
+
+    if (lenis) {
+
+      lenis.scrollTo(targetId, {
+        duration: 1.2
+      });
+    
+    } else {
+    
+      document.querySelector(targetId)
+        .scrollIntoView({
+          behavior: "smooth"
+        });
+    
+    }
+
+    window.closeMob();
+
+  });
+
 });
